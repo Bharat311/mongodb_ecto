@@ -6,7 +6,7 @@ defmodule Mongo.Ecto.Mixfile do
   def project do
     [app: :mongodb_ecto,
      version: @version,
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      deps: deps(),
      test_coverage: [tool: ExCoveralls],
      description: description(),
@@ -20,10 +20,9 @@ defmodule Mongo.Ecto.Mixfile do
 
   defp deps do
     [
-      {:mongodb, "~> 0.2.0"},
+      {:mongodb, "~> 0.3.0"},
       {:ecto, "~> 2.1.0"},
       {:dialyze, "~> 0.2.0", only: :dev},
-      {:excoveralls, "~> 0.5", only: :test},
       {:inch_ex, "~> 0.5", only: :docs},
       {:earmark, "~> 1.0", only: :docs},
       {:ex_doc, "~> 0.11", only: :docs}
@@ -37,7 +36,7 @@ defmodule Mongo.Ecto.Mixfile do
   end
 
   defp package do
-    [maintainers: ["Michał Muskała"],
+    [maintainers: ["Michał Muskała", "Justin Wood"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/michalmuskala/mongodb_ecto"},
      files: ~w(mix.exs README.md CHANGELOG.md lib)]
