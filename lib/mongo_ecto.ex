@@ -428,6 +428,7 @@ defmodule Mongo.Ecto do
   @doc false
   def loaders(:time,            type), do: [&load_time/1, type]
   def loaders(:date,            type), do: [&load_date/1, type]
+  def loaders(:datetime,        type), do: [&load_datetime/1, type]
   def loaders(:utc_datetime,    type), do: [&load_datetime/1, type]
   def loaders(:naive_datetime,  type), do: [&load_datetime/1, type]
   def loaders(:binary_id,       type), do: [&load_objectid/1, type]
@@ -472,6 +473,7 @@ defmodule Mongo.Ecto do
   @doc false
   def dumpers(:time,            type), do: [type, &dump_time/1]
   def dumpers(:date,            type), do: [type, &dump_date/1]
+  def dumpers(:datetime,        type), do: [type, &dump_datetime/1]
   def dumpers(:utc_datetime,    type), do: [type, &dump_datetime/1]
   def dumpers(:naive_datetime,  type), do: [type, &dump_datetime/1]
   def dumpers(:binary_id,       type), do: [type, &dump_objectid/1]
