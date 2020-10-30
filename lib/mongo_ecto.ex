@@ -377,6 +377,8 @@ defmodule Mongo.Ecto do
       @doc false
       def __pool__, do: {unquote(pool_name), unquote(Macro.escape(norm_config))}
 
+      def in_transaction?, do: false
+
       defoverridable [__pool__: 0]
     end
   end
@@ -714,6 +716,12 @@ defmodule Mongo.Ecto do
       IO.puts "[warning] MongoDB adapter does not support references, and will not enforce foreign_key constraints"
     end
   end
+
+  #
+  # Transaction callbacks
+  #
+
+  def in_transaction?(_repo), do: false
 
   ## Mongo specific calls
 
